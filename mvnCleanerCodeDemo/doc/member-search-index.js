@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"mvnCleanerCodeDemo","c":"HelloApp_Test","l":"HelloApp_Test()","url":"%3Cinit%3E()"},{"p":"mvnCleanerCodeDemo","c":"HelloApp","l":"HelloApp()","url":"%3Cinit%3E()"},{"p":"mvnCleanerCodeDemo","c":"HelloApp","l":"main(String[])","url":"main(java.lang.String[])"},{"p":"mvnCleanerCodeDemo","c":"HelloApp_Test","l":"testMain()"}]
