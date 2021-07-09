@@ -45,7 +45,7 @@ jobs:
   #  - name: Step 8 - Performance management using Jmeter(Vinu)
   
     - name: Step 9 - Persist Wrokflow data as artifacts(Alwyn)
-      run: mkdir staging1 && cp mvnCleanerCodeDemo/target/*.jar staging1     
+      run: mkdir staging1 && cp mvnCleanerCodeDemo/target/*.* staging1     
     - uses: actions/upload-artifact@v2
       with:
          name:  github-actions-artifact
