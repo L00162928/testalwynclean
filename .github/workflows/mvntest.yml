@@ -8,9 +8,9 @@ on:
    # Run once a day at 9AM PDT (16 UTC) on week days (1-5)
     - cron: '00 16 * * 1-5'
   push:
-    branches: [ Dev ]
+    branches: [ test ]
   pull_request:
-    branches: [ Dev ]
+    branches: [ test ]
 
 jobs:
   build-on-ubuntu:
