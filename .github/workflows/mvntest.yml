@@ -9,6 +9,7 @@ on:
     - cron: '00 16 * * 1-5'
   push:
     branches: [ test ]
+    paths: [ '**.java', '.github/workflows/mvntest.yml', 'docs/index.html' ]
   pull_request:
     branches: [ test ]
 
@@ -34,9 +35,44 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2-
         
+    - name: Build docs with Maven
+      run: mvn javadoc:javadoc
+    - name: Copy to Documentation Website Location
+      run: |
+        rm -rf docs/api
+        cp -rf target/site/apidocs/. docs/api	
+    - name: Tidy up the javadocs
+      id: tidy
+      uses: cicirello/javadoc-cleanup@v1
+      with:
+        base-url-path: https://github.com/L00162928/testalwynclean
+        path-to-root: docs
+        user-defined-block: |
+          <link rel="icon" href="/images/favicon48.png" sizes="16x16 32x32 48x48" type="image/png">
+          <link rel="icon" href="/images/favicon96.png" sizes="96x96" type="image/png">
+          <link rel="icon" href="/images/favicon144.png" sizes="144x144" type="image/png">
+          <link rel="icon" href="/images/favicon192.png" sizes="192x192" type="image/png">
+          <link rel="icon" href="/images/favicon384.png" sizes="384x384" type="image/png">
+    - name: Log javadoc-cleanup output
+      run: |
+        echo "modified-count = ${{ steps.tidy.outputs.modified-count }}"
+    - name: Commit documentation changes
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git config --global user.name 'L00162928'
+          git config --global user.email 'L00162928@student.lyit.ie'
+          git add -A
+          git commit -m "Automated API website updates."
+        fi
+    - name: Generate the sitemap
+      id: sitemap
+      uses: cicirello/generate-sitemap@v1
+      with:
+        base-url-path: https://github.com/L00162928/testalwynclean
+        path-to-root: docs 
+        
     - name: Step 4 - Build Maven project
       run:  mvn -B clean package site --file mvnCleanerCodeDemo/pom.xml
-      
     - name: Step 5 - List the environment variables
       run: env
     
