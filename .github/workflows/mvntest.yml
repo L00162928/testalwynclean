@@ -38,7 +38,7 @@ jobs:
     - name: Build docs with Maven
       run: mvn javadoc:javadoc --file mvnCleanerCodeDemo/pom.xml
     - name: Copy to Documentation Website Location
-      run: mkdir docs/api && cp mvnCleanerCodeDemo/target/site/apidocs/. docs/api
+      run: mkdir mvnCleanerCodeDemo/docs/api && cp mvnCleanerCodeDemo/target/site/apidocs/. mvnCleanerCodeDemo/docs/api
     - name: Tidy up the javadocs
       id: tidy
       uses: cicirello/javadoc-cleanup@v1
