@@ -44,7 +44,7 @@ jobs:
       id: tidy
       uses: cicirello/javadoc-cleanup@v1
       with:
-        base-url-path: https://github.com/L00162928/testalwynclean
+        base-url-path: https://github.com/L00162928/testalwynclean/tree/dev
         path-to-root: mvnCleanerCodeDemo/doc/api
         user-defined-block: |
           <link rel="icon" href="/images/favicon48.png" sizes="16x16 32x32 48x48" type="image/png">
@@ -67,7 +67,7 @@ jobs:
       id: sitemap
       uses: cicirello/generate-sitemap@v1
       with:
-        base-url-path: https://github.com/L00162928/testalwynclean
+        base-url-path: https://github.com/L00162928/testalwynclean/tree/dev
         path-to-root: mvnCleanerCodeDemo/doc/api 
         
     - name: Step 4 - Build Maven project
