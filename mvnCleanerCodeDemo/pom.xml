@@ -54,8 +54,7 @@
      
  <configuration>
        
- <locales>zh_CN</locales>
-   
+ 
    </configuration>
     
 </plugin>
