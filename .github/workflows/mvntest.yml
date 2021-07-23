@@ -35,7 +35,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2-
         
     - name: Step 4 - Build Maven project
-      run:  mvn -B clean site --file mvnCleanerCodeDemo/pom.xml
+      run:  mvn -B clean package site --file mvnCleanerCodeDemo/pom.xml
       
     - name: Step 5 - List the environment variables
       run: env
