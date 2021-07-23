@@ -44,7 +44,7 @@ jobs:
       uses: cicirello/javadoc-cleanup@v1
       with:
         base-url-path: https://github.com/L00162928/testalwynclean
-        path-to-root: docs
+        path-to-root: mvnCleanerCodeDemo/doc/api
         user-defined-block: |
           <link rel="icon" href="/images/favicon48.png" sizes="16x16 32x32 48x48" type="image/png">
           <link rel="icon" href="/images/favicon96.png" sizes="96x96" type="image/png">
@@ -67,7 +67,7 @@ jobs:
       uses: cicirello/generate-sitemap@v1
       with:
         base-url-path: https://github.com/L00162928/testalwynclean
-        path-to-root: docs 
+        path-to-root: mvnCleanerCodeDemo/doc/api 
         
     - name: Step 4 - Build Maven project
       run:  mvn -B clean package site --file mvnCleanerCodeDemo/pom.xml
