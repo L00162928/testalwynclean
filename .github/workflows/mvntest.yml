@@ -34,7 +34,8 @@ jobs:
           ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2-
-        
+    - name:  Maven clean
+      run: mvn clean --file mvnCleanerCodeDemo/pom.xml    
     - name: Build docs with Maven
       run: mvn javadoc:javadoc --file mvnCleanerCodeDemo/pom.xml
     - name: Copy to Documentation Website Location
