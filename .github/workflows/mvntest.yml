@@ -36,7 +36,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2-
         
     - name: Build docs with Maven
-      run: mvn javadoc:javadoc
+      run: mvn javadoc:javadoc --file mvnCleanerCodeDemo/pom.xml
     - name: Copy to Documentation Website Location
       run: |
         rm -rf docs/api
