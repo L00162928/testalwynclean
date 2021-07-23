@@ -9,7 +9,7 @@ on:
     - cron: '00 16 * * 1-5'
   push:
     branches: [ test ]
-    paths: [ '**.java', '.github/workflows/mvntest.yml', 'docs/index.html' ]
+   
   pull_request:
     branches: [ test ]
 
