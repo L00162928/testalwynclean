@@ -40,10 +40,7 @@ jobs:
     - name: Step 5 - List the environment variables
       run: env
     
-    - name: Step 6 - Code check using SonarQube(Peter)
-      run: mvn clean verify sonar:sonar -Dsonar.login=myAuthenticationToken|
-          echo Add other actions to build,
-          echo test, and deploy your project.
+
      
   #  - name: Step 7 - Junit test(Emil)
    
@@ -83,22 +80,7 @@ jobs:
   #    with:
   #      sarif_file: ./sarif/output.sarif
   
-  #- name: Step 9 - Performance management using Jmeter(Vinu)
-  
-    - name: Step 9 - PerfAction for JMeter (Performance management - Vinu)
-      uses: QAInsights/PerfAction@2.0
-      with:
-    # jmeter test plan to execute
-       test-plan-path: ./mvnCleanerCodeDemo/src/perfTest/testPlan/SampleTest.jmx
-    # Optional arguments.
-       args: " "
-     
-    # jmeter Upload results to artifact
-    - name: Upload Results (Performance management - Vinu)
-      uses: actions/upload-artifact@v2
-      with:
-       name: jmeter-results
-       path: result.jtl
+ 
        
    #  - name: Step 10 - Workflow artifact download(TBA)
   
